@@ -1,0 +1,45 @@
+{
+  "name": "codymentor-mern-starter",
+  "version": "1.0.0",
+  "description": "MERN stack starter template by CodyMentor",
+  "main": "server/src/index.js",
+  "scripts": {
+    "install:all": "npm install && cd client && npm install && cd ../server && npm install",
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:client": "cd client && npm start",
+    "dev:server": "cd server && npm run dev",
+    "build": "cd client && npm run build && cd ../server && npm run build",
+    "start": "cd server && npm start",
+    "test": "concurrently \"cd client && npm test\" \"cd server && npm test\"",
+    "test:client": "cd client && npm test",
+    "test:server": "cd server && npm test",
+    "lint": "eslint client/src server/src",
+    "lint:fix": "eslint client/src server/src --fix",
+    "format": "prettier --write \"client/src/**/*.{js,jsx,ts,tsx,json,css}\" \"server/src/**/*.{js,ts,json}\"",
+    "prepare": "husky install"
+  },
+  "keywords": [
+    "mern",
+    "starter",
+    "template",
+    "codymentor",
+    "learning"
+  ],
+  "author": "CodyMentor Software House",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "husky": "^8.0.0",
+    "lint-staged": "^15.0.0"
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx,json,css}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}
